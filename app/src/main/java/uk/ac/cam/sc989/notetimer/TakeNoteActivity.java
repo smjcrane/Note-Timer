@@ -51,13 +51,16 @@ public class TakeNoteActivity extends AppCompatActivity {
                     @Override
                     public void onTick(long milliSecondsRemaining) {
                         displaySeconds.setText(Long.toString(milliSecondsRemaining / 1000));
+                        if (milliSecondsRemaining < 6000){
+                            displaySeconds.setTextColor(getResources().getColor(R.color.colorRed));
+                        }
                     }
 
                     @Override
                     public void onFinish() {
+                        displaySeconds.setText("TIME UP");
                         isEditable = false;
                         textNote.setVisibility(View.INVISIBLE);
-                        displaySeconds.setText("TIME UP");
                     }
                 }.start();
 
