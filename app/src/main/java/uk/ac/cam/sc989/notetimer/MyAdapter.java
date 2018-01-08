@@ -34,7 +34,7 @@ public class MyAdapter extends ArrayAdapter<File> {
 
         TextView displayName = (TextView) view.findViewById(R.id.fileName);
         String fileName = files.get(position).getName();
-        displayName.setText(fileName.substring(fileName.length() - 4));
+        displayName.setText(fileName.substring(0, fileName.length() - 4));
 
         ImageView bin = (ImageView) view.findViewById(R.id.bin);
         bin.setOnClickListener(new View.OnClickListener() {

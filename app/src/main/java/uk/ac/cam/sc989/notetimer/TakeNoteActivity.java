@@ -10,17 +10,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.FileOutputStream;
-import java.util.Calendar;
 
 public class TakeNoteActivity extends AppCompatActivity {
-    private Button buttonStart;
-    private EditText inputSeconds;
+    private Button buttonStart, buttonSave;
+    private EditText inputSeconds, textNote, inputFileName;
     private View secondGetter;
     private TextView displaySeconds;
-    private EditText textNote;
 
     private CountDownTimer timer;
     private int secondsAllowed;
+    private String content;
 
     private boolean isEditable;
 
@@ -36,6 +35,8 @@ public class TakeNoteActivity extends AppCompatActivity {
         displaySeconds = (TextView) findViewById(R.id.displaySeconds);
         textNote = (EditText) findViewById(R.id.editNote);
         secondGetter = findViewById(R.id.getSeconds);
+        buttonSave = (Button) findViewById(R.id.buttonSave);
+        inputFileName = (EditText) findViewById(R.id.inputFileName);
 
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
@@ -63,8 +64,10 @@ public class TakeNoteActivity extends AppCompatActivity {
                     public void onFinish() {
                         displaySeconds.setText("TIME UP");
                         isEditable = false;
+                        content = textNote.getText().toString();
                         textNote.setVisibility(View.INVISIBLE);
-                        //saveFile();
+                        buttonSave.setVisibility(View.VISIBLE);
+                        inputFileName.setVisibility(View.VISIBLE);
                     }
                 };
                 timer.start();
@@ -72,12 +75,18 @@ public class TakeNoteActivity extends AppCompatActivity {
                 isEditable = true;
             }
         });
+
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveFile(inputFileName.getText().toString());
+                finish();
+            }
+        });
     }
 
-    private void saveFile(){
-        String content = textNote.getText().toString();
-        Calendar now = Calendar.getInstance();
-        String filename = Long.toString(now.getTimeInMillis())+".txt";
+    private void saveFile(String name){
+        String filename = name+".txt";
 
         FileOutputStream outputStream;
 
@@ -94,11 +103,13 @@ public class TakeNoteActivity extends AppCompatActivity {
     public void onPause(){
         super.onPause();
 
-        saveFile();
+        //saveFile();
         textNote.setText("");
 
         if (timer != null){
             timer.cancel();
         }
+
+        finish();
     }
 }
