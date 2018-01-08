@@ -27,7 +27,7 @@ public class SelectNoteActivity extends AppCompatActivity {
 
         File[] files = getFilesDir().listFiles();
 
-        ArrayList<String> names = new ArrayList<>();
+        ArrayList<File> names = new ArrayList<>();
 
         fileMap = new HashMap<>();
 
@@ -36,13 +36,13 @@ public class SelectNoteActivity extends AppCompatActivity {
             File f = files[i];
             String name = f.getName();
             if (name.substring(name.length() - 4).equals(".txt")){
-                names.add(f.getName());
+                names.add(f);
                 fileMap.put(i, f);
             }
         }
 
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, names);
+        MyAdapter adapter = new MyAdapter(this, names);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
