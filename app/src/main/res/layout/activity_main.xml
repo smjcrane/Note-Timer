@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="35dp"
     tools:context="uk.ac.cam.sc989.notetimer.MainActivity">
 
     <Button
         android:id="@+id/buttonNewNote"
         android:text="NEW"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/buttonViewNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -17,6 +22,9 @@
         android:text="VIEW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/buttonNewNote"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNewNote"/>
 
 </android.support.constraint.ConstraintLayout>

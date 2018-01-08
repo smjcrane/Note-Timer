@@ -66,7 +66,7 @@ public class TakeNoteActivity extends AppCompatActivity {
                         displaySeconds.setText("TIME UP");
                         isEditable = false;
                         textNote.setVisibility(View.INVISIBLE);
-                        saveFile();
+                        //saveFile();
                     }
                 };
                 timer.start();
@@ -96,7 +96,7 @@ public class TakeNoteActivity extends AppCompatActivity {
     public void onPause(){
         super.onPause();
 
-        //saveFile();
+        saveFile();
         textNote.setText("");
 
         if (timer != null){
