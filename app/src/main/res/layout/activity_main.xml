@@ -8,8 +8,15 @@
 
     <Button
         android:id="@+id/buttonNewNote"
-        android:text="+"
+        android:text="NEW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/buttonViewNote"
+        android:text="VIEW"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/buttonNewNote"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -16,12 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TakeNoteActivity"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
-        <activity android:name=".ViewNoteActivity">
-
-        </activity>
+        <activity
+            android:name=".TakeNoteActivity"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name=".ViewNoteActivity"></activity>
+        <activity android:name=".SelectNoteActivity"></activity>
     </application>
 
 </manifest>
