@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.FileOutputStream;
 import java.util.Calendar;
-import java.util.Date;
 
 public class TakeNoteActivity extends AppCompatActivity {
     private Button buttonStart;

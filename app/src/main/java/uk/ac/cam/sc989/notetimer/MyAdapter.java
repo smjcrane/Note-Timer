@@ -1,21 +1,15 @@
 package uk.ac.cam.sc989.notetimer;
 
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by Simon on 08/01/2018.
@@ -39,7 +33,8 @@ public class MyAdapter extends ArrayAdapter<File> {
         }
 
         TextView displayName = (TextView) view.findViewById(R.id.fileName);
-        displayName.setText(files.get(position).getName());
+        String fileName = files.get(position).getName();
+        displayName.setText(fileName.substring(fileName.length() - 4));
 
         ImageView bin = (ImageView) view.findViewById(R.id.bin);
         bin.setOnClickListener(new View.OnClickListener() {
